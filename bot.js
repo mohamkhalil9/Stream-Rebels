@@ -5,28 +5,14 @@ client.on('ready', () => {
 });
 
 
-const developers = ["415142691282616330"]
-const adminprefix = "!";
-client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'sp')) {
-    client.user.setGame(argresult);
-      message.channel.send(`**Status You   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'sw')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**Status You   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'sl')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**Status You  ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ss')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/M3roof");
-      message.channel.send(`**Status You ${argresult} **`)
-}
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const xkiller = member.guild.channels.find("name", "🙌『الـترحيب』-•");
+     xkiller.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
+  });
 });
 
 client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
