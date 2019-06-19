@@ -11,7 +11,7 @@ const background = await Canvas.loadImage('./wallpaper.jpg');
 // This uses the canvas dimensions to stretch the image onto the entire canvas
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 // Use helpful Attachment class structure to process the file for you
-const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+const attachment = new Discord.Attachment(canvas.toBuffer(), 'https://cdn.discordapp.com/attachments/590716697586171904/590717381580423178/welcome_4.png');
 
 channel.send(`Welcome to the server, ${member}!`, attachment);
 
