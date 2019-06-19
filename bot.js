@@ -7,7 +7,7 @@ if (!channel) return;
 const canvas = Canvas.createCanvas(700, 250);
 const ctx = canvas.getContext('2d');
 // Since the image takes time to load, you should await it
-const background = await Canvas.loadImage('./wallpaper.jpg');
+const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/590716697586171904/590717381580423178/welcome_4.png');
 // This uses the canvas dimensions to stretch the image onto the entire canvas
 ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 // Use helpful Attachment class structure to process the file for you
