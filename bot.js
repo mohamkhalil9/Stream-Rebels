@@ -1,4 +1,4 @@
-tconst Discord = require(‘discord.js’);
+const Discord = require(‘discord.js’);
 const client = new Discord.Client();
 const Canvas = require(‘canvas’);
 client.on(‘guildMemberAdd’, async member => {
